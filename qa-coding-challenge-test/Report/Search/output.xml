@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180510 00:36:58.057" generator="Robot 3.0.4 (Python 2.7.10 on darwin)">
+<suite source="/Users/thanakit/Documents/qatest_fastwork/qa-coding-challenge/automate/TestScenario/search.robot" id="s1" name="Search">
+<test id="s1-t1" name="User go to Fastwork">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${broswer}</arg>
+</arguments>
+<msg timestamp="20180510 00:36:58.167" level="INFO">Opening browser 'Chrome' to base url 'https://staging.fastwork.co/'.</msg>
+<status status="PASS" endtime="20180510 00:37:07.756" starttime="20180510 00:36:58.167"></status>
+</kw>
+<status status="PASS" endtime="20180510 00:37:07.757" critical="yes" starttime="20180510 00:36:58.166"></status>
+</test>
+<test id="s1-t2" name="User search with doesn't have result">
+<kw name="Customer search with keyword dosen't have result" library="home_page">
+<kw name="Home page should be opened" library="home_page">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Wait Until Page Contains Element</arg>
+<arg>&amp;{HOME_PAGE}[not_allow_btn]</arg>
+</arguments>
+<assign>
+<var>${element}</var>
+<var>${value}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[not_allow_btn]</arg>
+</arguments>
+<status status="PASS" endtime="20180510 00:37:07.779" starttime="20180510 00:37:07.760"></status>
+</kw>
+<msg timestamp="20180510 00:37:07.779" level="INFO">${element} = PASS</msg>
+<msg timestamp="20180510 00:37:07.779" level="INFO">${value} = None</msg>
+<status status="PASS" endtime="20180510 00:37:07.779" starttime="20180510 00:37:07.759"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${element}' == 'PASS'</arg>
+<arg>Click Element</arg>
+<arg>&amp;{HOME_PAGE}[not_allow_btn]</arg>
+</arguments>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[not_allow_btn]</arg>
+</arguments>
+<msg timestamp="20180510 00:37:07.780" level="INFO">Clicking element 'onesignal-popover-cancel-button'.</msg>
+<status status="PASS" endtime="20180510 00:37:07.843" starttime="20180510 00:37:07.780"></status>
+</kw>
+<status status="PASS" endtime="20180510 00:37:07.843" starttime="20180510 00:37:07.779"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${element}' == 'PASS'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>&amp;{HOME_PAGE}[login_btn]</arg>
+<arg>timeout=15s</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[login_btn]</arg>
+<arg>timeout=15s</arg>
+</arguments>
+<status status="PASS" endtime="20180510 00:37:07.875" starttime="20180510 00:37:07.844"></status>
+</kw>
+<status status="PASS" endtime="20180510 00:37:07.875" starttime="20180510 00:37:07.843"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${element}' == 'PASS'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>&amp;{HOME_PAGE}[search_field]</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[search_field]</arg>
+</arguments>
+<status status="PASS" endtime="20180510 00:37:07.902" starttime="20180510 00:37:07.876"></status>
+</kw>
+<status status="PASS" endtime="20180510 00:37:07.902" starttime="20180510 00:37:07.875"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>'${element}' == 'PASS'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>&amp;{HOME_PAGE}[login_btn]</arg>
+<arg>timeout=15s</arg>
+</arguments>
+<status status="PASS" endtime="20180510 00:37:07.902" starttime="20180510 00:37:07.902"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20180510 00:37:09.905" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20180510 00:37:09.905" starttime="20180510 00:37:07.903"></status>
+</kw>
+<status status="PASS" endtime="20180510 00:37:09.906" starttime="20180510 00:37:07.759"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[search_field]</arg>
+<arg>asdfg</arg>
+</arguments>
+<msg timestamp="20180510 00:37:09.907" level="INFO">Typing text 'asdfg' into text field 'id=desktopNavigationSearch'.</msg>
+<status status="PASS" endtime="20180510 00:37:10.020" starttime="20180510 00:37:09.906"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[search_btn]</arg>
+</arguments>
+<msg timestamp="20180510 00:37:10.021" level="INFO">Clicking element 'xpath=//div[@class='search-box navbar__search']/form[@class='search-box--form' and 1]/div[@class='search-box--icon' and 2]/img[1]'.</msg>
+<status status="PASS" endtime="20180510 00:37:10.169" starttime="20180510 00:37:10.020"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20180510 00:37:12.170" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20180510 00:37:12.171" starttime="20180510 00:37:10.169"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>ผลการค้นหา</arg>
+</arguments>
+<msg timestamp="20180510 00:37:12.195" level="INFO">Current page contains text 'ผลการค้นหา'.</msg>
+<status status="PASS" endtime="20180510 00:37:12.195" starttime="20180510 00:37:12.171"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>asdfg</arg>
+</arguments>
+<msg timestamp="20180510 00:37:12.216" level="INFO">Current page contains text 'asdfg'.</msg>
+<status status="PASS" endtime="20180510 00:37:12.216" starttime="20180510 00:37:12.195"></status>
+</kw>
+<status status="PASS" endtime="20180510 00:37:12.216" starttime="20180510 00:37:07.758"></status>
+</kw>
+<status status="PASS" endtime="20180510 00:37:12.216" critical="yes" starttime="20180510 00:37:07.757"></status>
+</test>
+<test id="s1-t3" name="User search with keyword that have result">
+<kw name="Customer search with keyword that have result" library="home_page">
+<arguments>
+<arg>test</arg>
+</arguments>
+<kw name="Home page should be opened" library="home_page">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Wait Until Page Contains Element</arg>
+<arg>&amp;{HOME_PAGE}[not_allow_btn]</arg>
+</arguments>
+<assign>
+<var>${element}</var>
+<var>${value}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[not_allow_btn]</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180510 00:37:17.884" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-28.png"&gt;&lt;img src="selenium-screenshot-28.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180510 00:37:17.884" starttime="20180510 00:37:17.296"></status>
+</kw>
+<msg timestamp="20180510 00:37:17.885" level="FAIL">Element 'onesignal-popover-cancel-button' did not appear in 5 seconds.</msg>
+<status status="FAIL" endtime="20180510 00:37:17.885" starttime="20180510 00:37:12.219"></status>
+</kw>
+<msg timestamp="20180510 00:37:17.885" level="INFO">${element} = FAIL</msg>
+<msg timestamp="20180510 00:37:17.885" level="INFO">${value} = Element 'onesignal-popover-cancel-button' did not appear in 5 seconds.</msg>
+<status status="PASS" endtime="20180510 00:37:17.885" starttime="20180510 00:37:12.218"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${element}' == 'PASS'</arg>
+<arg>Click Element</arg>
+<arg>&amp;{HOME_PAGE}[not_allow_btn]</arg>
+</arguments>
+<status status="PASS" endtime="20180510 00:37:17.886" starttime="20180510 00:37:17.885"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${element}' == 'PASS'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>&amp;{HOME_PAGE}[login_btn]</arg>
+<arg>timeout=15s</arg>
+</arguments>
+<status status="PASS" endtime="20180510 00:37:17.886" starttime="20180510 00:37:17.886"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${element}' == 'PASS'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>&amp;{HOME_PAGE}[search_field]</arg>
+</arguments>
+<status status="PASS" endtime="20180510 00:37:17.886" starttime="20180510 00:37:17.886"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>'${element}' == 'PASS'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>&amp;{HOME_PAGE}[login_btn]</arg>
+<arg>timeout=15s</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[login_btn]</arg>
+<arg>timeout=15s</arg>
+</arguments>
+<status status="PASS" endtime="20180510 00:37:17.900" starttime="20180510 00:37:17.887"></status>
+</kw>
+<status status="PASS" endtime="20180510 00:37:17.901" starttime="20180510 00:37:17.887"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20180510 00:37:19.902" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20180510 00:37:19.902" starttime="20180510 00:37:17.901"></status>
+</kw>
+<status status="PASS" endtime="20180510 00:37:19.902" starttime="20180510 00:37:12.218"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[search_field]</arg>
+<arg>${search_keyword}</arg>
+</arguments>
+<msg timestamp="20180510 00:37:19.903" level="INFO">Typing text 'test' into text field 'id=desktopNavigationSearch'.</msg>
+<status status="PASS" endtime="20180510 00:37:19.955" starttime="20180510 00:37:19.902"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[search_btn]</arg>
+</arguments>
+<msg timestamp="20180510 00:37:19.955" level="INFO">Clicking element 'xpath=//div[@class='search-box navbar__search']/form[@class='search-box--form' and 1]/div[@class='search-box--icon' and 2]/img[1]'.</msg>
+<status status="PASS" endtime="20180510 00:37:25.010" starttime="20180510 00:37:19.955"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20180510 00:37:27.012" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20180510 00:37:27.012" starttime="20180510 00:37:25.010"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>ผลการค้นหา</arg>
+</arguments>
+<status status="PASS" endtime="20180510 00:37:27.041" starttime="20180510 00:37:27.013"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>${search_keyword}</arg>
+</arguments>
+<status status="PASS" endtime="20180510 00:37:27.083" starttime="20180510 00:37:27.041"></status>
+</kw>
+<status status="PASS" endtime="20180510 00:37:27.083" starttime="20180510 00:37:12.218"></status>
+</kw>
+<status status="PASS" endtime="20180510 00:37:27.083" critical="yes" starttime="20180510 00:37:12.217"></status>
+</test>
+<status status="PASS" endtime="20180510 00:37:27.084" starttime="20180510 00:36:58.060"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="3">Critical Tests</stat>
+<stat fail="0" pass="3">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Search" pass="3">Search</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,138 @@
+*** Settings ***
+Documentation	This resource file contain specific keywords home page for running Robotframework
+
+Library  Selenium2Library  run_on_failure=Capture Page Screenshot
+
+*** Variables ***
+
+&{HOME_PAGE}     login_btn=css=button.button-login
+...     login_dialog=xpath=//*[@id="app"]/div[1]/div[2]/div[1]/div/div[3]/button
+...     login_dialog_title=เข้าสู่ระบบ
+...     allow_btn=onesignal-popover-allow-button
+...     not_allow_btn=onesignal-popover-cancel-button
+#...     register_link=css=a._cs-pt._dp-f._jtfct-fe._mgh-12px._ffml-primary
+...     register_link=xpath=//a[@class='_cs-pt _dp-f _jtfct-fe _mgh-12px _ffml-primary']
+#...     username=name=username
+...     username_pre_regis=xpath=//*[@id="modal"]/div[2]/div[3]/form/div/div/input
+...     username_login=xpath=//div[1]/form[1]/div[@class='bio-field' and 1]/div[@class='bio-input']/input[1]
+...     password_login=xpath=//div[1]/form[1]/div[2]/div[@class='bio-input' and 1]/input[1]
+...     submit_btn=xpath=//div[1]/form[1]/button[1]
+...     regis_btn=xpath=//button[@class='bio-button -primary -outline _w-100pct _mgt-12px']
+...     error_dialog=id=intercom-container
+...     password_regis=xpath=//div[3]/div[@class='bio-input' and 1]/input[1]
+...     password_regis_con=xpath=//div[4]/div[@class='bio-input' and 1]/input[1]
+...     regis_btn_with_pass=//div[@class='bio-button _w-100pct _mgt-12px']
+...     search_field=id=desktopNavigationSearch
+...     search_btn=xpath=//div[@class='search-box navbar__search']/form[@class='search-box--form' and 1]/div[@class='search-box--icon' and 2]/img[1]
+...     profile_name_id=css=div.navbar__profile-username
+
+*** Keywords ***
+
+Home page should be opened
+    ${element}	${value} =	Run Keyword And Ignore Error  Wait Until Page Contains Element  &{HOME_PAGE}[not_allow_btn]
+    Run Keyword If	'${element}' == 'PASS'  Click Element  &{HOME_PAGE}[not_allow_btn]
+    Run Keyword If	'${element}' == 'PASS'  Wait Until Element Is Visible  &{HOME_PAGE}[login_btn]  timeout=15s
+    Run Keyword If  '${element}' == 'PASS'  Wait Until Element Is Visible  &{HOME_PAGE}[search_field]
+    Run Keyword Unless    '${element}' == 'PASS'    Wait Until Element Is Visible  &{HOME_PAGE}[login_btn]  timeout=15s
+    Sleep  2
+
+Customer click login
+    Wait Until Element Is Visible  &{HOME_PAGE}[login_btn]
+    Click Button  &{HOME_PAGE}[login_btn]
+
+Customer go to Sign Up page
+    Wait Until Element Is Visible  &{HOME_PAGE}[login_dialog]
+    Sleep  2
+    Click Link  &{HOME_PAGE}[register_link]
+    Click Link  &{HOME_PAGE}[register_link]
+    Click Link  &{HOME_PAGE}[register_link]
+
+Customer input wrong email format for register
+    [Arguments]  ${email}
+    Wait Until Element Is Visible  &{HOME_PAGE}[username_pre_regis]
+    Input Text  &{HOME_PAGE}[username_pre_regis]  ${email}
+    Click Button  &{HOME_PAGE}[regis_btn]
+    Sleep  2
+    Page Should Contain  ใส่หมายเลขโทรศัพท์มือถือหรืออีเมลเท่านั้น
+
+Customer input correct email for register
+    [Arguments]  ${email}
+    Wait Until Element Is Visible  &{HOME_PAGE}[username_pre_regis]
+    Clear Element Text  &{HOME_PAGE}[username_pre_regis]
+    Input Text  &{HOME_PAGE}[username_pre_regis]  ${email}
+    Click Button  &{HOME_PAGE}[regis_btn]
+
+Customer input password is not match
+    [Arguments]  ${pass}  ${pass_con}
+    Wait Until Element Is Visible  &{HOME_PAGE}[password_regis]  timeout=10s
+    Input Text  &{HOME_PAGE}[password_regis]  ${pass}
+    Input Text  &{HOME_PAGE}[password_regis_con]  ${pass_con}
+    Sleep  1
+    Page Should Contain  รหัสผ่านไม่ตรงกัน
+
+Customer input password is match
+    [Arguments]  ${pass}  ${pass_con}
+    Wait Until Element Is Visible  &{HOME_PAGE}[password_regis]
+    Clear Element Text  &{HOME_PAGE}[password_regis]
+    Input Text  &{HOME_PAGE}[password_regis]  ${pass}
+    Clear Element Text  &{HOME_PAGE}[password_regis_con]
+    Input Text  &{HOME_PAGE}[password_regis_con]  ${pass_con}
+    Sleep  1
+    Click Element  &{HOME_PAGE}[regis_btn_with_pass]
+    Wait Until Element Is Visible  &{HOME_PAGE}[profile_name_id]  timeout=15s
+
+Customer login with wrong email
+    [Arguments]  ${email}  ${pass}
+    Wait Until Element Is Visible  &{HOME_PAGE}[username_login]
+    Input Text  &{HOME_PAGE}[username_login]  ${email}
+    Input Text  &{HOME_PAGE}[password_login]  ${pass}
+    Click Button  &{HOME_PAGE}[submit_btn]
+    Sleep  2
+    Page Should Contain  คุณใส่ Username ไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง
+    Wait Until Page Does Not Contain  คุณใส่ Username ไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง  timeout=60s
+
+
+Customer login with wrong password
+    [Arguments]  ${email}  ${pass}
+    Wait Until Element Is Visible  &{HOME_PAGE}[username_login]
+    Click Element  &{HOME_PAGE}[username_login]
+    Clear Element Text	  &{HOME_PAGE}[username_login]
+    Input Text  &{HOME_PAGE}[username_login]  ${email}
+    Click Element  &{HOME_PAGE}[password_login]
+    Clear Element Text	  &{HOME_PAGE}[password_login]
+    Input Text  &{HOME_PAGE}[password_login]  ${pass}
+    Click Button  &{HOME_PAGE}[submit_btn]
+    Sleep  2
+    Page Should Contain  คุณใส่ Password ไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง
+#    Click Element  &{HOME_PAGE}[error_dialog]
+
+Customer login with correct email and password
+    [Arguments]  ${email}  ${pass}
+    Wait Until Element Is Visible  &{HOME_PAGE}[username_login]
+    Click Element  &{HOME_PAGE}[username_login]
+    Clear Element Text	  &{HOME_PAGE}[username_login]
+    Input Text  &{HOME_PAGE}[username_login]  ${email}
+    Click Element  &{HOME_PAGE}[password_login]
+    Clear Element Text	  &{HOME_PAGE}[password_login]
+    Input Text  &{HOME_PAGE}[password_login]  ${pass}
+    Click Button  &{HOME_PAGE}[submit_btn]
+    Wait Until Element Is Visible  &{HOME_PAGE}[profile_name_id]
+
+
+Customer search with keyword dosen't have result
+    Home page should be opened
+    Input Text  &{HOME_PAGE}[search_field]  asdfg
+    Click Element  &{HOME_PAGE}[search_btn]
+    Sleep  2
+    Page Should Contain  ผลการค้นหา
+    Page Should Contain  asdfg
+
+Customer search with keyword that have result
+    [Arguments]  ${search_keyword}
+    Home page should be opened
+    Input Text  &{HOME_PAGE}[search_field]  ${search_keyword}
+    Click Element  &{HOME_PAGE}[search_btn]
+    Sleep  2
+    Wait Until Page Contains  ผลการค้นหา
+    Wait Until Page Contains  ${search_keyword}
+

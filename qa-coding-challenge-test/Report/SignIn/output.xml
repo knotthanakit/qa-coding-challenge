@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180510 01:46:00.500" generator="Robot 3.0.4 (Python 2.7.10 on darwin)">
+<suite source="/Users/thanakit/Documents/qatest_fastwork/qa-coding-challenge/automate/TestScenario/sign_in.robot" id="s1" name="Sign In">
+<test id="s1-t1" name="User go to Fastwork">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${broswer}</arg>
+</arguments>
+<msg timestamp="20180510 01:46:00.630" level="INFO">Opening browser 'Chrome' to base url 'https://staging.fastwork.co/'.</msg>
+<status status="PASS" endtime="20180510 01:46:13.445" starttime="20180510 01:46:00.630"></status>
+</kw>
+<status status="PASS" endtime="20180510 01:46:13.446" critical="yes" starttime="20180510 01:46:00.629"></status>
+</test>
+<test id="s1-t2" name="User click login">
+<kw name="Home page should be opened" library="home_page">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Wait Until Page Contains Element</arg>
+<arg>&amp;{HOME_PAGE}[not_allow_btn]</arg>
+</arguments>
+<assign>
+<var>${element}</var>
+<var>${value}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[not_allow_btn]</arg>
+</arguments>
+<status status="PASS" endtime="20180510 01:46:13.469" starttime="20180510 01:46:13.449"></status>
+</kw>
+<msg timestamp="20180510 01:46:13.469" level="INFO">${element} = PASS</msg>
+<msg timestamp="20180510 01:46:13.469" level="INFO">${value} = None</msg>
+<status status="PASS" endtime="20180510 01:46:13.469" starttime="20180510 01:46:13.449"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${element}' == 'PASS'</arg>
+<arg>Click Element</arg>
+<arg>&amp;{HOME_PAGE}[not_allow_btn]</arg>
+</arguments>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[not_allow_btn]</arg>
+</arguments>
+<msg timestamp="20180510 01:46:13.471" level="INFO">Clicking element 'onesignal-popover-cancel-button'.</msg>
+<status status="PASS" endtime="20180510 01:46:13.561" starttime="20180510 01:46:13.470"></status>
+</kw>
+<status status="PASS" endtime="20180510 01:46:13.561" starttime="20180510 01:46:13.469"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${element}' == 'PASS'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>&amp;{HOME_PAGE}[login_btn]</arg>
+<arg>timeout=15s</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[login_btn]</arg>
+<arg>timeout=15s</arg>
+</arguments>
+<status status="PASS" endtime="20180510 01:46:13.602" starttime="20180510 01:46:13.562"></status>
+</kw>
+<status status="PASS" endtime="20180510 01:46:13.602" starttime="20180510 01:46:13.561"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${element}' == 'PASS'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>&amp;{HOME_PAGE}[search_field]</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[search_field]</arg>
+</arguments>
+<status status="PASS" endtime="20180510 01:46:13.631" starttime="20180510 01:46:13.603"></status>
+</kw>
+<status status="PASS" endtime="20180510 01:46:13.631" starttime="20180510 01:46:13.603"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>'${element}' == 'PASS'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>&amp;{HOME_PAGE}[login_btn]</arg>
+<arg>timeout=15s</arg>
+</arguments>
+<status status="PASS" endtime="20180510 01:46:13.632" starttime="20180510 01:46:13.631"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20180510 01:46:15.632" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20180510 01:46:15.633" starttime="20180510 01:46:13.632"></status>
+</kw>
+<status status="PASS" endtime="20180510 01:46:15.633" starttime="20180510 01:46:13.448"></status>
+</kw>
+<status status="PASS" endtime="20180510 01:46:15.633" critical="yes" starttime="20180510 01:46:13.447"></status>
+</test>
+<test id="s1-t3" name="User on Login dialog">
+<kw name="Customer click login" library="home_page">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[login_btn]</arg>
+</arguments>
+<status status="PASS" endtime="20180510 01:46:15.651" starttime="20180510 01:46:15.635"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[login_btn]</arg>
+</arguments>
+<msg timestamp="20180510 01:46:15.652" level="INFO">Clicking button 'css=button.button-login'.</msg>
+<status status="PASS" endtime="20180510 01:46:15.858" starttime="20180510 01:46:15.651"></status>
+</kw>
+<status status="PASS" endtime="20180510 01:46:15.858" starttime="20180510 01:46:15.635"></status>
+</kw>
+<status status="PASS" endtime="20180510 01:46:15.858" critical="yes" starttime="20180510 01:46:15.634"></status>
+</test>
+<test id="s1-t4" name="User input email doesn't exist">
+<kw name="Customer login with wrong email" library="home_page">
+<arguments>
+<arg>testwrongemail</arg>
+<arg>1234567890</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[username_login]</arg>
+</arguments>
+<status status="PASS" endtime="20180510 01:46:15.892" starttime="20180510 01:46:15.860"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[username_login]</arg>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20180510 01:46:15.893" level="INFO">Typing text 'testwrongemail' into text field 'xpath=//div[1]/form[1]/div[@class='bio-field' and 1]/div[@class='bio-input']/input[1]'.</msg>
+<status status="PASS" endtime="20180510 01:46:16.105" starttime="20180510 01:46:15.892"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[password_login]</arg>
+<arg>${pass}</arg>
+</arguments>
+<msg timestamp="20180510 01:46:16.106" level="INFO">Typing text '1234567890' into text field 'xpath=//div[1]/form[1]/div[2]/div[@class='bio-input' and 1]/input[1]'.</msg>
+<status status="PASS" endtime="20180510 01:46:16.305" starttime="20180510 01:46:16.105"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[submit_btn]</arg>
+</arguments>
+<msg timestamp="20180510 01:46:16.306" level="INFO">Clicking button 'xpath=//div[1]/form[1]/button[1]'.</msg>
+<status status="PASS" endtime="20180510 01:46:16.436" starttime="20180510 01:46:16.306"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20180510 01:46:18.437" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20180510 01:46:18.438" starttime="20180510 01:46:16.436"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>คุณใส่ Username ไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</arg>
+</arguments>
+<msg timestamp="20180510 01:46:18.464" level="INFO">Current page contains text 'คุณใส่ Username ไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง'.</msg>
+<status status="PASS" endtime="20180510 01:46:18.464" starttime="20180510 01:46:18.438"></status>
+</kw>
+<kw name="Wait Until Page Does Not Contain" library="Selenium2Library">
+<doc>Waits until ``text`` disappears from current page.</doc>
+<arguments>
+<arg>คุณใส่ Username ไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</arg>
+<arg>timeout=60s</arg>
+</arguments>
+<status status="PASS" endtime="20180510 01:46:27.778" starttime="20180510 01:46:18.465"></status>
+</kw>
+<status status="PASS" endtime="20180510 01:46:27.778" starttime="20180510 01:46:15.859"></status>
+</kw>
+<status status="PASS" endtime="20180510 01:46:27.779" critical="yes" starttime="20180510 01:46:15.859"></status>
+</test>
+<test id="s1-t5" name="User input email with wrong password">
+<kw name="Customer login with wrong password" library="home_page">
+<arguments>
+<arg>test001@test.com</arg>
+<arg>123456789</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[username_login]</arg>
+</arguments>
+<status status="PASS" endtime="20180510 01:46:27.794" starttime="20180510 01:46:27.780"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[username_login]</arg>
+</arguments>
+<msg timestamp="20180510 01:46:27.794" level="INFO">Clicking element 'xpath=//div[1]/form[1]/div[@class='bio-field' and 1]/div[@class='bio-input']/input[1]'.</msg>
+<status status="PASS" endtime="20180510 01:46:27.848" starttime="20180510 01:46:27.794"></status>
+</kw>
+<kw name="Clear Element Text" library="Selenium2Library">
+<doc>Clears the value of text entry element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[username_login]</arg>
+</arguments>
+<status status="PASS" endtime="20180510 01:46:27.871" starttime="20180510 01:46:27.848"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[username_login]</arg>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20180510 01:46:27.872" level="INFO">Typing text 'test001@test.com' into text field 'xpath=//div[1]/form[1]/div[@class='bio-field' and 1]/div[@class='bio-input']/input[1]'.</msg>
+<status status="PASS" endtime="20180510 01:46:28.006" starttime="20180510 01:46:27.872"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[password_login]</arg>
+</arguments>
+<msg timestamp="20180510 01:46:28.007" level="INFO">Clicking element 'xpath=//div[1]/form[1]/div[2]/div[@class='bio-input' and 1]/input[1]'.</msg>
+<status status="PASS" endtime="20180510 01:46:28.060" starttime="20180510 01:46:28.007"></status>
+</kw>
+<kw name="Clear Element Text" library="Selenium2Library">
+<doc>Clears the value of text entry element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[password_login]</arg>
+</arguments>
+<status status="PASS" endtime="20180510 01:46:28.078" starttime="20180510 01:46:28.060"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[password_login]</arg>
+<arg>${pass}</arg>
+</arguments>
+<msg timestamp="20180510 01:46:28.078" level="INFO">Typing text '123456789' into text field 'xpath=//div[1]/form[1]/div[2]/div[@class='bio-input' and 1]/input[1]'.</msg>
+<status status="PASS" endtime="20180510 01:46:28.159" starttime="20180510 01:46:28.078"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[submit_btn]</arg>
+</arguments>
+<msg timestamp="20180510 01:46:28.160" level="INFO">Clicking button 'xpath=//div[1]/form[1]/button[1]'.</msg>
+<status status="PASS" endtime="20180510 01:46:28.242" starttime="20180510 01:46:28.159"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20180510 01:46:30.243" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20180510 01:46:30.243" starttime="20180510 01:46:28.243"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>คุณใส่ Password ไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</arg>
+</arguments>
+<msg timestamp="20180510 01:46:30.270" level="INFO">Current page contains text 'คุณใส่ Password ไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง'.</msg>
+<status status="PASS" endtime="20180510 01:46:30.270" starttime="20180510 01:46:30.244"></status>
+</kw>
+<status status="PASS" endtime="20180510 01:46:30.270" starttime="20180510 01:46:27.780"></status>
+</kw>
+<status status="PASS" endtime="20180510 01:46:30.271" critical="yes" starttime="20180510 01:46:27.779"></status>
+</test>
+<test id="s1-t6" name="User login with correct email">
+<kw name="Customer login with correct email and password" library="home_page">
+<arguments>
+<arg>test001@test.com</arg>
+<arg>testtest</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[username_login]</arg>
+</arguments>
+<status status="PASS" endtime="20180510 01:46:30.286" starttime="20180510 01:46:30.272"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[username_login]</arg>
+</arguments>
+<msg timestamp="20180510 01:46:30.287" level="INFO">Clicking element 'xpath=//div[1]/form[1]/div[@class='bio-field' and 1]/div[@class='bio-input']/input[1]'.</msg>
+<status status="PASS" endtime="20180510 01:46:30.329" starttime="20180510 01:46:30.286"></status>
+</kw>
+<kw name="Clear Element Text" library="Selenium2Library">
+<doc>Clears the value of text entry element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[username_login]</arg>
+</arguments>
+<status status="PASS" endtime="20180510 01:46:30.346" starttime="20180510 01:46:30.329"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[username_login]</arg>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20180510 01:46:30.347" level="INFO">Typing text 'test001@test.com' into text field 'xpath=//div[1]/form[1]/div[@class='bio-field' and 1]/div[@class='bio-input']/input[1]'.</msg>
+<status status="PASS" endtime="20180510 01:46:30.472" starttime="20180510 01:46:30.346"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[password_login]</arg>
+</arguments>
+<msg timestamp="20180510 01:46:30.473" level="INFO">Clicking element 'xpath=//div[1]/form[1]/div[2]/div[@class='bio-input' and 1]/input[1]'.</msg>
+<status status="PASS" endtime="20180510 01:46:30.510" starttime="20180510 01:46:30.473"></status>
+</kw>
+<kw name="Clear Element Text" library="Selenium2Library">
+<doc>Clears the value of text entry element identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[password_login]</arg>
+</arguments>
+<status status="PASS" endtime="20180510 01:46:30.527" starttime="20180510 01:46:30.510"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[password_login]</arg>
+<arg>${pass}</arg>
+</arguments>
+<msg timestamp="20180510 01:46:30.528" level="INFO">Typing text 'testtest' into text field 'xpath=//div[1]/form[1]/div[2]/div[@class='bio-input' and 1]/input[1]'.</msg>
+<status status="PASS" endtime="20180510 01:46:30.598" starttime="20180510 01:46:30.527"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[submit_btn]</arg>
+</arguments>
+<msg timestamp="20180510 01:46:30.599" level="INFO">Clicking button 'xpath=//div[1]/form[1]/button[1]'.</msg>
+<status status="PASS" endtime="20180510 01:46:30.670" starttime="20180510 01:46:30.598"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>&amp;{HOME_PAGE}[profile_name_id]</arg>
+</arguments>
+<status status="PASS" endtime="20180510 01:46:32.714" starttime="20180510 01:46:30.671"></status>
+</kw>
+<status status="PASS" endtime="20180510 01:46:32.714" starttime="20180510 01:46:30.272"></status>
+</kw>
+<status status="PASS" endtime="20180510 01:46:32.715" critical="yes" starttime="20180510 01:46:30.271"></status>
+</test>
+<status status="PASS" endtime="20180510 01:46:32.717" starttime="20180510 01:46:00.503"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="6">Critical Tests</stat>
+<stat fail="0" pass="6">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Sign In" pass="6">Sign In</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
